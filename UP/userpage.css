@@ -1,0 +1,31 @@
+<!-- /* 
+Aufgabe 00: Miniseite
+Name: Annsophie Rösch
+Matrikel: 257727
+Datum: 22.Mrz18
+
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert. 
+*/ -->
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+html {
+	font-family: 'Amatic SC', cursive;
+	text-align: center;
+	background-color: #f4d4f4;
+}
+
+h1 {
+	color: #333333;
+	font-size: 5em;
+	
+}
+
+main p {
+	font-size: 2em;
+	color: #666666;
+}
