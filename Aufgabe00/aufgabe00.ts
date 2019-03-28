@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", greetUser);
 function greetUser(): void {
     let eingabe: string = prompt("Wie heißt du?");
     if (eingabe != null) {
