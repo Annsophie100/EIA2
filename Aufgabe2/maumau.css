@@ -1,0 +1,49 @@
+/* 
+Aufgabe: 02
+Name: Annsophie Rösch
+Matrikel: 257727
+Datum: 07.04.2019
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert. 
+*/
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	background-color: #006d00;
+}
+
+body {
+  width: 100%;
+}
+
+#stapelSection {
+	display: inline-block;
+	width: 50%;
+}
+
+#stapelSection img, #ablageSection img {
+	max-width:33.3%;
+	padding: 1em 33.3%;
+	transform: rotate(90deg);
+}
+
+#ablageSection {
+	display: inline-block;
+	width: 50%;
+}
+
+#handSection {
+	width: 60%;
+	margin: auto 20%;
+}
+
+#handSection img {
+	width: 20%;
+}
