@@ -1,0 +1,74 @@
+/* 
+Aufgabe: 03
+Name: Annsophie Rösch
+Matrikel: 257727
+Datum: 14.04.2019
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert. 
+*/
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	background-color:  #0e5827;
+}
+
+body {
+  width: 100%;
+}
+
+#stapelSection {
+	display: inline;
+	margin-left: 23%;
+}
+
+#ablageSection {
+	display: inline;
+	margin-left: 25.75%;
+}
+
+#stapelSection img, #ablageSection img{
+	transform: rotate(90deg);
+	max-width: 180px;
+}
+
+#ablageSection img{
+	position: absolute;
+}
+
+#handSection {
+	width: 60%;
+	margin: auto 20%;
+}
+
+#handSection img {
+	width: 20%;
+}
+
+#sortierenSection {
+	width: 50%;
+	margin: auto 25%;
+}
+
+#sortierButton {
+	width: 70%;
+	height: 2em;
+	margin: 2rem 15%;
+	color: white;
+	background-color: #0e5827;
+	font-family: 'Arial', sans-serif;
+	font-weight: bold;
+	border: 2px solid 0e5827;
+	border-radius: 15px 50px;
+}
+
+#sortierButton:hover, #sortierButton:active {
+	color: black;
+	background-color: #15843a;
+}
