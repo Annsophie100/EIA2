@@ -17,48 +17,48 @@ var eisdealer1;
     ];
     // einzelne Arrays der Produkte mit allen Sorten
     eisdealer1.eis = [
-        { name: "Vanille", preis: 30.0 },
-        { name: "Schokolade", preis: 30.0 },
-        { name: "Erdbeere", preis: 20.0 },
-        { name: "Pistazie", preis: 20.0 },
-        { name: "Mango", preis: 20.0 },
-        { name: "Zitrone", preis: 20.0 },
-        { name: "Dealer's Special", preis: 20.0 }
+        { name: "Vanille", preis: 2.0 },
+        { name: "Schokolade", preis: 2.0 },
+        { name: "Erdbeere", preis: 2.0 },
+        { name: "Pistazie", preis: 3.0 },
+        { name: "Mango", preis: 3.0 },
+        { name: "Zitrone", preis: 3.0 },
+        { name: "Dealer's Special", preis: 5.0 }
     ];
     eisdealer1.topping = [
-        { name: "Sahne", preis: 0.0 },
-        { name: "Marshmellows", preis: 5.0 },
-        { name: "Nüsse", preis: 5.0 },
-        { name: "Oreo", preis: 5.0 }
+        { name: "Sahne", preis: 1.0 },
+        { name: "Marshmellows", preis: 2.0 },
+        { name: "Nüsse", preis: 2.0 },
+        { name: "Oreo", preis: 3.0 }
     ];
     eisdealer1.cream = [
-        { name: "Schokolade", preis: 2.0 },
-        { name: "Karamell", preis: 2.0 },
-        { name: "Erdbeere", preis: 10.0 },
-        { name: "Dealer's Special Dip", preis: 10.0 }
+        { name: "Schokolade", preis: 1.5 },
+        { name: "Karamell", preis: 1.5 },
+        { name: "Erdbeere", preis: 1.5 },
+        { name: "Dealer's Special Dip", preis: 2.0 }
     ];
     eisdealer1.streusel = [
-        { name: "Bunte", preis: 0.0 },
-        { name: "Schokolade", preis: 10.0 },
-        { name: "fruity", preis: 5.0 },
-        { name: "Glitzer", preis: 5.0 },
-        { name: "Kokos", preis: 5.0 }
+        { name: "Bunte", preis: 0.5 },
+        { name: "Schokolade", preis: 0.5 },
+        { name: "fruity", preis: 0.5 },
+        { name: "Glitzer", preis: 0.7 },
+        { name: "Kokos", preis: 0.9 }
     ];
     eisdealer1.behaelter = [
-        { name: "Waffel", preis: 3.0 },
-        { name: "Becher", preis: 3.0 },
+        { name: "Waffel", preis: 0.5 },
+        { name: "Becher", preis: 1.0 },
         { name: "Kübel", preis: 3.0 }
     ];
     eisdealer1.lieferdienst = [
-        { name: "UPS", preis: 5.0 },
-        { name: "DHL", preis: 5.0 },
-        { name: "Hermes", preis: 5.0 },
-        { name: "DPD", preis: 5.0 }
+        { name: "UPS", preis: 2.5 },
+        { name: "DHL", preis: 2.5 },
+        { name: "Hermes", preis: 3.0 },
+        { name: "DPD", preis: 4.5 }
     ];
     eisdealer1.lieferart = [
         { name: "Standard", preis: 0.0 },
         { name: "24h-Express", preis: 5.0 },
-        { name: "Morning-Express", preis: 10.0 }
+        { name: "Morning-Express", preis: 7.0 }
     ];
 })(eisdealer1 || (eisdealer1 = {}));
 //# sourceMappingURL=data.js.map

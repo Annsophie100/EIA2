@@ -1,38 +1,28 @@
+/* 
+Aufgabe: 04
+Name: Annsophie Rösch
+Matrikel: 257727
+Datum: 21.04.2019
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert. 
+*/
+
 * {
 	vertical-align: top
 }
 
-body{
+body {
 	width: 100%;
-}
-input[type="radio"], input[type="checkbox"], label {
-	display: inline;
+	background-color: #fce8ea;
 }
 
+#side {
+	position: fixed;
+	right: 0px;
+	top: 185px;
+}
 
-
-head {
-	display: none;
-}
-input:invalid {
-	background: #F0C060;
-}
-input:valid {
-	background: white;
-}
-input:required {
-	background: #aaaaaa;
-}
 fieldset {
-	width: 40%;
+	width: 50%;
 }
-
-#persDaten {display: block;}
-
-
-svg, figure, button, option {
-	display: inline;
-	margin: 0px;
-	padding: 0px;
-}
-
