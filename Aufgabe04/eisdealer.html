@@ -8,7 +8,6 @@ Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert. 
 */ -->
 
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -24,25 +23,26 @@ nicht kopiert und auch nicht diktiert.
 
 	<main>
 
-	<h1>Eisdealer</h1>
+	<h1>🍦EISDEALER🍦</h1>
 	<form id="form">
 
 		<div id="formular"></div>
 
 		<fieldset id="daten">
 			<legend>Persönliche Angaben</legend>
-			<br> <input type="text" name="Nachname" placeholder="Nachname" />
-			<input type="text" name="Vorname" placeholder="Vorname" /> <br>
-			<br> <input type="text" name="Straße" placeholder="Straße" /> <input
-				type="text" name="Hausnummer" placeholder="Nr." /> <br> <br>
-			<input type="text" name="PLZ" placeholder="PLZ" /> <input
-				type="text" name="Ort" placeholder="Ort" />
-
+				<input type="text" name="nName" placeholder="Nachname" pattern="[a-zA-ZäöüÄÖÜ]+" required="" /> 
+				<input type="text" name="vName" placeholder="Vorname" pattern="[a-zA-ZäöüÄÖÜ]+" required="" /> 
+				<input type="text" name="str" placeholder="Straße" pattern="[a-zA-ZäöüÄÖÜ \.0-9]+" required="" /> 
+				<input type="text" name="hnr" placeholder="Nr." pattern="[0-9]+[a-zA-Z]?" required="" />
+				<input type="text" name="plz" placeholder="PLZ" pattern="[0-9]{5}" required="" /> 
+				<input type="text" name="ort" placeholder="Ort" pattern="[a-zA-Z]+" required="" /> 
+				<input type="email" name="email" placeholder="Mailadresse" required="">
 		</fieldset>
 
 	</form>
 	<div id="side">
 		<div id="warenkorb"></div>
+		<div id="adresse"></div>
 		<div id="message"></div>
 	</div>
 	</main>
