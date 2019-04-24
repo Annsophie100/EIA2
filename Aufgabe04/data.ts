@@ -8,6 +8,7 @@ Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert. 
 */
 
+
 namespace eisdealer1 {
 
     //interface für Produkte

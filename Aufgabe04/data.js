@@ -7,6 +7,7 @@ Hiermit versichere ich, dass ich diesen
 Code selbst geschrieben habe. Er wurde
 nicht kopiert und auch nicht diktiert.
 */
+
 var eisdealer1;
 (function (eisdealer1) {
     ;
