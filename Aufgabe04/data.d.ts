@@ -12,3 +12,4 @@ declare namespace eisdealer1 {
     let lieferdienst: Produkt[];
     let lieferart: Produkt[];
 }
+
