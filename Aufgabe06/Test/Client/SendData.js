@@ -1,36 +1,39 @@
-var L06_SendData;
-(function (L06_SendData) {
-    window.addEventListener("load", init);
-    // let address: string = "http://localhost:8100";
-    let address = "https://eiaannsophie.herokuapp.com/";
-    function init(_event) {
-        setupColorDivs();
-    }
-    function setupColorDivs() {
-        let colors = ["red", "green", "blue"];
-        let divs = document.getElementsByTagName("div");
-        for (let i = 0; i < divs.length; i++) {
-            divs[i].style.backgroundColor = colors[i];
-            divs[i].addEventListener("click", handleClickOnDiv);
+var A06;
+(function (A06) {
+    var Konzept;
+    (function (Konzept) {
+        window.addEventListener("load", init);
+        // let address: string = "http://localhost:8100";
+        let address = "https://eiaannsophie.herokuapp.com/";
+        function init(_event) {
+            setupColorDivs();
         }
-    }
-    function handleClickOnDiv(_event) {
-        let style = _event.target.style;
-        console.log(style.backgroundColor);
-        sendRequestWithCustomData(style.backgroundColor);
-    }
-    function sendRequestWithCustomData(_color) {
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "?color=" + _color, true);
-        xhr.addEventListener("readystatechange", handleStateChange);
-        xhr.send();
-    }
-    function handleStateChange(_event) {
-        var xhr = _event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
-            console.log("response: " + xhr.response);
+        function setupColorDivs() {
+            let colors = ["red", "green", "blue"];
+            let divs = document.getElementsByTagName("div");
+            for (let i = 0; i < divs.length; i++) {
+                divs[i].style.backgroundColor = colors[i];
+                divs[i].addEventListener("click", handleClickOnDiv);
+            }
         }
-    }
-})(L06_SendData || (L06_SendData = {}));
+        function handleClickOnDiv(_event) {
+            let style = _event.target.style;
+            console.log(style.backgroundColor);
+            sendRequestWithCustomData(style.backgroundColor);
+        }
+        function sendRequestWithCustomData(_color) {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", address + "?color=" + _color, true);
+            xhr.addEventListener("readystatechange", handleStateChange);
+            xhr.send();
+        }
+        function handleStateChange(_event) {
+            var xhr = _event.target;
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+                console.log("response: " + xhr.response);
+            }
+        }
+    })(Konzept = A06.Konzept || (A06.Konzept = {}));
+})(A06 || (A06 = {}));
 //# sourceMappingURL=SendData.js.map
