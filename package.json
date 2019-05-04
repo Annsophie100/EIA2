@@ -8,7 +8,7 @@
 		"start" : "node EIA2/Aufgabe06/Test/Server/Server.js"
 	},
 	"engines" : {
-		"node" : "5.4.2"
+		"node" : "6.11.1"
 	},
 	"dependencies" : {
         "@types/node": "12.0.0"
