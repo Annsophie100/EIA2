@@ -4,7 +4,7 @@
 	"description" : "EIA2",
 	"author" : "Annsophie",
 	"main" : "Server.js",
-	"scripts" : {
+	"scripts" : {   
 		"start" : "node EIA2/Aufgabe06/Test/Server/Server.js"
 	},
 	"engines" : {
