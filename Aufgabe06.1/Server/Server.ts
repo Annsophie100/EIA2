@@ -12,7 +12,7 @@ nicht kopiert und auch nicht diktiert.
 import * as Http from "http";
 
 // eröffnen von Namespace
-namespace A06_Konzept {
+namespace A061_Konzept {
 
     // Konsolenausgabe von string "Starting server"
     console.log("Starting server");

@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // importiert Datei als http
 const Http = require("http");
 // eröffnen von Namespace
-var A06_Konzept;
-(function (A06_Konzept) {
+var A061_Konzept;
+(function (A061_Konzept) {
     // Konsolenausgabe von string "Starting server"
     console.log("Starting server");
     // process.env.PORT ist eine Nummer, der port definiert den Server, der man selbst ist (process.env = Umgebung des Prozesses)
@@ -55,5 +55,5 @@ var A06_Konzept;
         // Konversation wird beendet
         _response.end();
     }
-})(A06_Konzept || (A06_Konzept = {}));
+})(A061_Konzept || (A061_Konzept = {}));
 //# sourceMappingURL=Server.js.map
