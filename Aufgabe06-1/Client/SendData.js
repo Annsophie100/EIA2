@@ -17,8 +17,10 @@ var A06_Konzept;
     function handleClickOnDiv(_event) {
         let style = _event.target.style;
         console.log(style.backgroundColor);
+        // ruf funktion für request auf
         sendRequestWithCustomData(style.backgroundColor);
     }
+    //bastelt request zusammen
     function sendRequestWithCustomData(_color) {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", address + "?color=" + _color, true);

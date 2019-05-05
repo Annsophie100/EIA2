@@ -19,9 +19,12 @@ namespace A06_Konzept {
     function handleClickOnDiv(_event: Event): void {
         let style: CSSStyleDeclaration = (<HTMLElement>_event.target).style;
         console.log(style.backgroundColor);
+
+        // ruf funktion für request auf
         sendRequestWithCustomData(style.backgroundColor);
     }
 
+    //bastelt request zusammen
     function sendRequestWithCustomData(_color: string): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", address + "?color=" + _color, true);
