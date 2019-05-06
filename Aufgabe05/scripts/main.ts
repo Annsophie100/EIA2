@@ -32,7 +32,7 @@ namespace eisdealer2 {
 
             // iteriert durch produktListeEinzeln
             for (let i: number = 0; i < produktListeEinzeln.length; i++) {
-                inputErstellen(parentFieldset, produktListeEinzeln[i], produktArt)
+                inputErstellen(parentFieldset, produktListeEinzeln[i], produktArt);
             }
         }
     }
@@ -109,7 +109,7 @@ namespace eisdealer2 {
     function handleChange(_event: Event): void {
         // Variablen
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
-        let inputGroup: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+        let inputGroup: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
 
         switch (target.type) {
             case ("radio"):
@@ -149,7 +149,7 @@ namespace eisdealer2 {
     function warenkorbSchreiben(): void {
 
         // Variablen
-        let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+        let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let sideDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("side");
         let warenkorbDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("warenkorb");
 
@@ -247,7 +247,7 @@ namespace eisdealer2 {
     function preisBerechnen(_warenkorbDiv: HTMLDivElement): string {
         // Variablen
         let preis: number = 0;
-        let warenkorbPs: NodeListOf<HTMLParagraphElement> = _warenkorbDiv.getElementsByTagName("p");
+        let warenkorbPs: HTMLCollectionOf<HTMLParagraphElement> = _warenkorbDiv.getElementsByTagName("p");
 
         // iteriert durch NodeList
         for (let i: number = 0; i < warenkorbPs.length; i++) {
@@ -308,11 +308,11 @@ namespace eisdealer2 {
     function checkBestellung(): string {
         let finalString: string = "";
         console.log(finalString.length);
-        let fieldsetList: NodeListOf<HTMLFieldSetElement> = document.getElementById("formularDyn").getElementsByTagName("fieldset");
+        let fieldsetList: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementById("formularDyn").getElementsByTagName("fieldset");
 
         // iteriert so lange durch fielsetList, bis entweder array zuende ist ODER finalString länger als 0
         for (let i: number = 0; i < fieldsetList.length && finalString.length == 0; i++) {
-            let inputList: NodeListOf<HTMLInputElement> = document.getElementById(fieldsetList[i].id).getElementsByTagName("input");
+            let inputList: HTMLCollectionOf<HTMLInputElement> = document.getElementById(fieldsetList[i].id).getElementsByTagName("input");
             let showCounter: number = 0;
 
             // iteriert durch einzelne inputs bis ende
@@ -343,7 +343,7 @@ namespace eisdealer2 {
 
     //_________check Personenangaben___________________________
     function checkPerso(): string {
-        let datenInputs: NodeListOf<HTMLInputElement> = document.getElementById("daten").getElementsByTagName("input");
+        let datenInputs: HTMLCollectionOf<HTMLInputElement> = document.getElementById("daten").getElementsByTagName("input");
         let finalString: string = "";
         let check: boolean = false;
 

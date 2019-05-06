@@ -304,6 +304,8 @@ var eisdealer1;
                 //Endpreis += (Einzelpreis x Stückzahl)
                 preis += (singlePreis * value);
             }
+            // für Nodes mit Attribut "calc" == "false"
+            // oder ohne Attribut "calc"
             else {
                 continue;
             }
@@ -327,6 +329,7 @@ var eisdealer1;
         if (writeMessage == 0) {
             p = paragraphErstellen(messageDiv);
         }
+        // bei jedem weiteren Druchlauf
         else {
             p = document.getElementById("message").children[0];
             p.innerText = "";
@@ -336,12 +339,14 @@ var eisdealer1;
         if (messageBestellung.length == 0 && messagePerso.length == 0) {
             p.innerText = "\n" + "Alle Angaben korrekt - du kannst bestellen🥳🎉";
         }
+        //jwls eins länger als 0
         else if (messageBestellung.length > 0 && messagePerso.length == 0) {
             p.innerText = messageBestellung;
         }
         else if (messageBestellung.length == 0 && messagePerso.length > 0) {
             p.innerText = messagePerso;
         }
+        // beide länger als 0
         else {
             p.innerText = messageBestellung + "\n" + messagePerso;
         }
@@ -414,6 +419,7 @@ var eisdealer1;
         if (check == true) {
             finalString += "Etwas ist bei der Eingabe deiner Daten schief gelaufen🤯";
         }
+        // rückgabe der adresse bei richtiger eingabe
         else {
             finalString += "\n" + "Deine Lieferadresse 📦" + "\n";
             finalString += datenInputs[0].value + ", " + datenInputs[1].value + "\n" + datenInputs[2].value + " " + datenInputs[3].value + "\n" + datenInputs[4].value + " " + datenInputs[5].value + "\n" + datenInputs[6].value;

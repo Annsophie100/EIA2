@@ -72,19 +72,28 @@ namespace eisdealer_server {
 
         let label: HTMLElement;
 
+        input.name = _produktEinzeln.name;
+
         if (_produktEinzeln.inputType == "number") {
             input.min = "0";
             input.max = "20";
             input.step = "1";
+            input.setAttribute("value", "0");
             label = document.createElement("p");
+        }
+
+        else if (_produktEinzeln.inputType == "radio") {
+            input.name = "radioGroup_" + _produktArt;
+            label = document.createElement("label");
+            input.value = _produktEinzeln.name;
         }
 
         else {
             input.value = _produktEinzeln.name;
-            input.name = _produktEinzeln.inputType + "Group_" + _produktArt;
             label = document.createElement("label");
         }
 
+        
         label.setAttribute("for", input.id);
         label.innerHTML = _produktEinzeln.name;
 
@@ -113,7 +122,7 @@ namespace eisdealer_server {
     function handleChange(_event: Event): void {
         // Variablen
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
-        let inputGroup: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+        let inputGroup: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
 
         switch (target.type) {
             case ("radio"):
@@ -134,7 +143,7 @@ namespace eisdealer_server {
 
             case ("number"):
                 if (target.value == "0") { target.setAttribute("show", "false"); }
-                else { target.setAttribute("show", "true"); }
+                else { target.setAttribute("show", "true"); target.setAttribute("value", target.value); }
                 warenkorbSchreiben();
                 break;
 
@@ -153,7 +162,7 @@ namespace eisdealer_server {
     function warenkorbSchreiben(): void {
 
         // Variablen
-        let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+        let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let sideDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("side");
         let warenkorbDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("warenkorb");
 
@@ -251,7 +260,7 @@ namespace eisdealer_server {
     function preisBerechnen(_warenkorbDiv: HTMLDivElement): string {
         // Variablen
         let preis: number = 0;
-        let warenkorbPs: NodeListOf<HTMLParagraphElement> = _warenkorbDiv.getElementsByTagName("p");
+        let warenkorbPs: HTMLCollectionOf<HTMLParagraphElement> = _warenkorbDiv.getElementsByTagName("p");
 
         // iteriert durch NodeList
         for (let i: number = 0; i < warenkorbPs.length; i++) {
@@ -312,11 +321,11 @@ namespace eisdealer_server {
     function checkBestellung(): string {
         let finalString: string = "";
         console.log(finalString.length);
-        let fieldsetList: NodeListOf<HTMLFieldSetElement> = document.getElementById("formularDyn").getElementsByTagName("fieldset");
+        let fieldsetList: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementById("formularDyn").getElementsByTagName("fieldset");
 
         // iteriert so lange durch fielsetList, bis entweder array zuende ist ODER finalString länger als 0
         for (let i: number = 0; i < fieldsetList.length && finalString.length == 0; i++) {
-            let inputList: NodeListOf<HTMLInputElement> = document.getElementById(fieldsetList[i].id).getElementsByTagName("input");
+            let inputList: HTMLCollectionOf<HTMLInputElement> = document.getElementById(fieldsetList[i].id).getElementsByTagName("input");
             let showCounter: number = 0;
 
             // iteriert durch einzelne inputs bis ende
@@ -347,7 +356,7 @@ namespace eisdealer_server {
 
     //_________check Personenangaben___________________________
     function checkPerso(): string {
-        let datenInputs: NodeListOf<HTMLInputElement> = document.getElementById("daten").getElementsByTagName("input");
+        let datenInputs: HTMLCollectionOf<HTMLInputElement> = document.getElementById("daten").getElementsByTagName("input");
         let finalString: string = "";
         let check: boolean = false;
 

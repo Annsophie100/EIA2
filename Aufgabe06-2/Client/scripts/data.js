@@ -9,8 +9,6 @@ nicht kopiert und auch nicht diktiert.
 */
 var eisdealer_server;
 (function (eisdealer_server) {
-    ;
-    ;
     // Befüllen der Produktliste
     eisdealer_server.produktListeGesamt = {
         "Eis": [

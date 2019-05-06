@@ -15,12 +15,12 @@ namespace eisdealer_server {
         name: string;
         preis: number;
         inputType: string;
-    };
+    }
 
     // Interface für Produktliste bestehend aus Produkte
     export interface Produktliste {
         [produktArt: string]: Produkt[];
-    };
+    }
 
     // Befüllen der Produktliste
     export let produktListeGesamt: Produktliste = {

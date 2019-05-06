@@ -54,15 +54,21 @@ var eisdealer_server;
         input.type = _produktEinzeln.inputType;
         input.id = _produktEinzeln.inputType + "_" + _produktEinzeln.name;
         let label;
+        input.name = _produktEinzeln.name;
         if (_produktEinzeln.inputType == "number") {
             input.min = "0";
             input.max = "20";
             input.step = "1";
+            input.setAttribute("value", "0");
             label = document.createElement("p");
+        }
+        else if (_produktEinzeln.inputType == "radio") {
+            input.name = "radioGroup_" + _produktArt;
+            label = document.createElement("label");
+            input.value = _produktEinzeln.name;
         }
         else {
             input.value = _produktEinzeln.name;
-            input.name = _produktEinzeln.inputType + "Group_" + _produktArt;
             label = document.createElement("label");
         }
         label.setAttribute("for", input.id);
@@ -114,6 +120,7 @@ var eisdealer_server;
                 }
                 else {
                     target.setAttribute("show", "true");
+                    target.setAttribute("value", target.value);
                 }
                 warenkorbSchreiben();
                 break;
