@@ -1,0 +1,16 @@
+{
+	"name": "Eisdealer ReReloaded",
+	"version": "1.0.0",
+	"description": "Showing serverresponse in HTML",
+	"author": "Annsophie100",
+	"main": "Server.js",
+	"scripts": {
+		"start": "node A07/Server/server.js"
+	},
+	"engines": {
+		"node": "8.11.3"
+	},
+	"dependencies": {
+		"@types/node": "^11.13.8"
+	}
+}
