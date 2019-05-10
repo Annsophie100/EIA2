@@ -316,7 +316,7 @@ namespace a07_eisdealer {
         // wenn alle daten richtig sind erscheint der SubmitButton um an Server zu senden
         if (checkAdresse == true && checkArtikel == true) {
             let submitButton: HTMLButtonElement = document.createElement("button");
-            submitButton.type = "submit";
+            submitButton.type = "text";
             submitButton.id = "submitButton";
             submitButton.innerText = "Bestellung abschicken";
             submitButton.addEventListener("click", urlSchreiben);
