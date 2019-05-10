@@ -458,6 +458,7 @@ namespace a07_eisdealer {
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
     }
+    
     function handleStateChange(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {

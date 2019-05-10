@@ -1,16 +1,16 @@
 {
-	"name" : "eiaannsophie",
-	"version" : "1.0.0",
-	"description" : "EIA2",
-	"author" : "Annsophie",
-	"main" : "Server.js",
-	"scripts" : {   
-		"start" : "node Aufgabe06-1/Server/Server.js"
+	"name": "Eisdealer ReReloaded",
+	"version": "1.0.0",
+	"description": "Showing serverresponse in HTML",
+	"author": "Annsophie100",
+	"main": "Server.js",
+	"scripts": {
+		"start": "node A07/Server/server.js"
 	},
-	"engines" : {
-		"node" : "6.11.1"
+	"engines": {
+		"node": "8.11.3"
 	},
-	"dependencies" : {
-        "@types/node": "12.0.0"
+	"dependencies": {
+		"@types/node": "^11.13.8"
 	}
 }
