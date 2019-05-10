@@ -277,7 +277,7 @@ var a07_eisdealer;
         // wenn alle daten richtig sind erscheint der SubmitButton um an Server zu senden
         if (checkAdresse == true && checkArtikel == true) {
             let submitButton = document.createElement("button");
-            submitButton.type = "text";
+            submitButton.type = "submit";
             submitButton.id = "submitButton";
             submitButton.innerText = "Bestellung abschicken";
             submitButton.addEventListener("click", urlSchreiben);
