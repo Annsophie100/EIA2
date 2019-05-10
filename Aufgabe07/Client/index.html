@@ -1,0 +1,55 @@
+<!-- /* 
+Aufgabe: 07
+Name: Annsophie Rösch
+Matrikel: 257727
+Datum: 12.05.2019
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert. 
+*/  -->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>Eisdealer</title>
+<link rel="stylesheet" href="style.css" type="text/css"
+	media="screen" />
+<script src="scripts/data.js" type="text/javascript" charset="utf-8"></script>
+<script src="scripts/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+
+	<main>
+
+	<h1>🍦EISDEALER🍦</h1>
+	<!-- <form id="form" action="https://eiaannsophie.herokuapp.com" method="get"> -->
+	<form id="form" action="index.html" method="get">
+
+		<div id="formularDyn"></div>
+
+		<fieldset id="daten">
+			<legend>Persönliche Angaben</legend>
+				<input type="text" name="nName" placeholder="Nachname" pattern="[a-zA-ZäöüÄÖÜ]+" required="" /> 
+				<input type="text" name="vName" placeholder="Vorname" pattern="[a-zA-ZäöüÄÖÜ]+" required="" /> 
+				<input type="text" name="str" placeholder="Straße" pattern="[a-zA-ZäöüÄÖÜ \.0-9]+" required="" /> 
+				<input type="text" name="hnr" placeholder="Nr." pattern="[0-9]+[a-zA-Z]?" required="" />
+				<input type="text" name="plz" placeholder="PLZ" pattern="[0-9]{5}" required="" /> 
+				<input type="text" name="ort" placeholder="Ort" pattern="[a-zA-Z]+" required="" /> 
+				<input type="email" name="email" placeholder="Mailadresse" required="">
+		</fieldset>
+
+		<button type="submit" id="confirm"> Bestellung abschicken</button>
+
+	</form>
+	
+	<div id="side">
+		<div id="warenkorb"></div>
+		<div id="adresse"></div>
+		<div id="message"></div>
+	</div>
+	</main>
+
+</body>
+</html>
