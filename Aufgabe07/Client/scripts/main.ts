@@ -423,7 +423,6 @@ namespace a07_eisdealer {
                 if (input.getAttribute("produkt") == "Lieferdienst" || input.getAttribute("produkt") == "Lieferart") {
                     //Lieferdienst=Hermes2Euro
                     //Lieferart=Express3Euro
-
                     if (preisEinfach == 0) {
                         url += `${input.getAttribute("produkt")}=${input.value}&`;
                     }

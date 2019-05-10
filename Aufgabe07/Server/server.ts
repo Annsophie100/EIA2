@@ -64,8 +64,6 @@ namespace L07_Server {
                 default: break;
             }
 
-
-
             _response.write("<p>" + responseString + "</p>");
 
             console.log(_request.url);
