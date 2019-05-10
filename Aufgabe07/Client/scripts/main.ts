@@ -482,6 +482,7 @@ namespace a07_eisdealer {
                 response.innerHTML = "";
             }
             response.innerHTML = xhr.response;
+            writeResponse++;
         }
     }
 

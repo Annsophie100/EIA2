@@ -36,6 +36,7 @@ var L07_Server;
                     responseString += key + "sorte: " + url.query[key];
                     break;
                 case ("Streusel"):
+                    //fehlt noch
                     break;
                 case ("Cream"):
                 case ("Topping"):

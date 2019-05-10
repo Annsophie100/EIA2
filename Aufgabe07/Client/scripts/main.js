@@ -443,6 +443,7 @@ var a07_eisdealer;
                 response.innerHTML = "";
             }
             response.innerHTML = xhr.response;
+            writeResponse++;
         }
     }
 })(a07_eisdealer || (a07_eisdealer = {})); //namespace
