@@ -17,6 +17,7 @@ var a07_eisdealer;
     let writeWarenkorb = 0;
     let writeMessage = 0;
     let writeAdresse = 0;
+    let writeResponse = 0;
     let checkArtikel = false;
     let checkAdresse = false;
     //_____erstellt Fieldsets in div.id == "formularDyn"
@@ -425,12 +426,20 @@ var a07_eisdealer;
     function handleStateChange(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let response = document.createElement("div");
-            response.id = "serverResponse";
-            let heading = document.createElement("h2");
-            heading.innerText = "Folgende Bestellung ist bei uns eingegangen:";
-            response.innerHTML = heading + xhr.response;
-            document.getElementById("side").appendChild(response);
+            let response;
+            let heading;
+            if (writeResponse == 0) {
+                response = document.createElement("div");
+                response.id = "serverResponse";
+                heading = document.createElement("h2");
+                heading.innerText = "Folgende Bestellung ist bei uns eingegangen:";
+                document.getElementById("side").appendChild(response);
+                response.appendChild(heading);
+            }
+            else {
+                response.innerHTML = "";
+            }
+            response.innerHTML = xhr.response;
         }
     }
 })(a07_eisdealer || (a07_eisdealer = {})); //namespace

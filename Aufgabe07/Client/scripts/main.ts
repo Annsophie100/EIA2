@@ -21,6 +21,7 @@ namespace a07_eisdealer {
     let writeWarenkorb: number = 0;
     let writeMessage: number = 0;
     let writeAdresse: number = 0;
+    let writeResponse: number = 0;
     let checkArtikel: boolean = false;
     let checkAdresse: boolean = false;
 
@@ -458,22 +459,27 @@ namespace a07_eisdealer {
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
     }
-    
+
     function handleStateChange(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let response: HTMLDivElement = document.createElement("div");
-            response.id = "serverResponse";
+            let response: HTMLDivElement;
+            let heading: HTMLHeadingElement;
 
-            let heading: HTMLHeadingElement = document.createElement("h2");
-            heading.innerText = "Folgende Bestellung ist bei uns eingegangen:";
+            if (writeResponse == 0) {
+                response = document.createElement("div");
+                response.id = "serverResponse";
 
-            response.innerHTML = heading + xhr.response;
-            document.getElementById("side").appendChild(response);
-
-
+                heading = document.createElement("h2");
+                heading.innerText = "Folgende Bestellung ist bei uns eingegangen:";
+                document.getElementById("side").appendChild(response);
+                response.appendChild(heading);
+            }
+            else {
+                response.innerHTML = "";
+            }
+            response.innerHTML = xhr.response;
         }
-
     }
 
 
