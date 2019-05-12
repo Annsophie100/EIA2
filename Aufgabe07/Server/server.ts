@@ -37,6 +37,8 @@ namespace L07_Server {
 
         let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
+        _response.write("<h2>Folgende Bestellung ist bei uns eingegangen:</h2>");
+
         for (let key in url.query) {
 
             let responseString: string = "";
@@ -54,17 +56,12 @@ namespace L07_Server {
                     break;
 
                 case ("Cream"):
+                case ("Behaelter"):
                 case ("Lieferart"):
                 case ("Lieferdienst"):
                     responseString += key + ": " + url.query[key];
                     console.log(responseString);
                     break;
-
-                case ("Behaelter"):
-                    responseString += url.query[key];
-                    console.log(responseString);
-                    break;
-
 
                 default: break;
             }

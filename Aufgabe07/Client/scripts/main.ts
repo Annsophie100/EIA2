@@ -472,11 +472,7 @@ namespace a07_eisdealer {
             if (writeResponse == 0) {
                 response = document.createElement("div");
                 response.id = "serverResponse";
-
-                heading = document.createElement("h2");
-                heading.innerText = "Folgende Bestellung ist bei uns eingegangen:";
-                document.getElementById("side").appendChild(response);
-                response.appendChild(heading);
+                document.getElementById("side").appendChild(response);   
             }
             else {
                 response.innerHTML = "";

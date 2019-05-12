@@ -29,6 +29,7 @@ var L07_Server;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         let url = Url.parse(_request.url, true);
+        _response.write("<h2>Folgende Bestellung ist bei uns eingegangen:</h2>");
         for (let key in url.query) {
             let responseString = "";
             switch (key) {
@@ -42,13 +43,10 @@ var L07_Server;
                     console.log(responseString);
                     break;
                 case ("Cream"):
+                case ("Behaelter"):
                 case ("Lieferart"):
                 case ("Lieferdienst"):
                     responseString += key + ": " + url.query[key];
-                    console.log(responseString);
-                    break;
-                case ("Behaelter"):
-                    responseString += url.query[key];
                     console.log(responseString);
                     break;
                 default: break;
