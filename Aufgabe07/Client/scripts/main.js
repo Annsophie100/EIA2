@@ -363,6 +363,7 @@ var a07_eisdealer;
         }
         // rückgabe der adresse bei richtiger eingabe
         else {
+            finalString = "";
             finalString += "\n" + "Deine Lieferadresse 📦" + "\n";
             finalString += datenInputs[0].value + ", " + datenInputs[1].value + "\n" + datenInputs[2].value + " " + datenInputs[3].value + "\n" + datenInputs[4].value + " " + datenInputs[5].value + "\n" + datenInputs[6].value;
             checkAdresse = true;
