@@ -37,7 +37,7 @@ namespace L07_Server {
 
         let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 
-        _response.write("<h2>Folgende Bestellung ist bei uns eingegangen:</h2>");
+        _response.write("<hr><h2>Folgende Bestellung ist bei uns eingegangen:</h2>");
 
         for (let key in url.query) {
 

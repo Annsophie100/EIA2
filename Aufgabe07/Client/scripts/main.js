@@ -275,7 +275,7 @@ var a07_eisdealer;
         // Anzeige der Auswertung______________________________________________________
         p.innerText = messageBestellung + "\n" + messagePerso;
         // wenn alle daten richtig sind erscheint der SubmitButton um an Server zu senden
-        if (checkAdresse == true && checkArtikel == true) {
+        if (writeResponse == 0 && checkAdresse == true && checkArtikel == true) {
             let submitButton = document.createElement("button");
             submitButton.type = "submit";
             submitButton.id = "submitButton";
