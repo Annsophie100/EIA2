@@ -33,4 +33,4 @@ var eisdealer_server;
         _response.end();
     }
 })(eisdealer_server || (eisdealer_server = {}));
-//# sourceMappingURL=server.js.map
+//# sourceMappingURL=Server.js.map

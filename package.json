@@ -5,7 +5,7 @@
 	"author": "Annsophie100",
 	"main": "Server.js",
 	"scripts": {
-		"start": "node Aufgabe07/Server/Server.js"
+		"start": "node Aufgabe07/Server/server.js"
 	},
 	"engines": {
 		"node": "6.11.1"
