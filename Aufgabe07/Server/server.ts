@@ -49,13 +49,9 @@ namespace L07_Server {
                     console.log(responseString);
                     break;
 
-                case ("Streusel"):
-                case ("Topping"):
-                    responseString += key + ": " + url.query[key];
-                    console.log(responseString);
-                    break;
-
                 case ("Cream"):
+                case ("Topping"):
+                case ("Streusel"):
                 case ("Behaelter"):
                 case ("Lieferart"):
                 case ("Lieferdienst"):
@@ -70,7 +66,7 @@ namespace L07_Server {
 
             console.log(_request.url);
 
-            
+
         }
         _response.end();
     }
