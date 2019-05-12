@@ -36,22 +36,23 @@ var L07_Server;
                     responseString += key + "sorte: " + url.query[key];
                     break;
                 case ("Streusel"):
-                    //fehlt noch
+                case ("Topping"):
+                    responseString += key + ": " + url.query[key];
                     break;
                 case ("Cream"):
-                case ("Topping"):
                 case ("Lieferart"):
                 case ("Lieferdienst"):
-                    responseString += key + "sorte: " + url.query[key];
+                    responseString += key + ": " + url.query[key];
                     break;
                 case ("Behaelter"):
+                    responseString += url.query[key];
                     break;
                 default: break;
             }
             _response.write("<p>" + responseString + "</p>");
             console.log(_request.url);
-            _response.end();
         }
+        _response.end();
     }
 })(L07_Server || (L07_Server = {})); //namespace wird geschlossen
 //# sourceMappingURL=server.js.map

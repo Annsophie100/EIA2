@@ -47,18 +47,20 @@ namespace L07_Server {
                     break;
 
                 case ("Streusel"):
-                //fehlt noch
+                case ("Topping"):
+                    responseString += key + ": " + url.query[key];
                     break;
 
                 case ("Cream"):
-                case ("Topping"):
                 case ("Lieferart"):
                 case ("Lieferdienst"):
-                    responseString += key + "sorte: " + url.query[key];
+                    responseString += key + ": " + url.query[key];
                     break;
 
                 case ("Behaelter"):
+                    responseString += url.query[key];
                     break;
+                    
 
                 default: break;
             }
@@ -67,8 +69,9 @@ namespace L07_Server {
 
             console.log(_request.url);
 
-            _response.end();
+            
         }
+        _response.end();
     }
 
 } //namespace wird geschlossen

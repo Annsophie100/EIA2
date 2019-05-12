@@ -410,7 +410,7 @@ var a07_eisdealer;
             //für txt
             if (input.type == "text" || input.type == "email") {
                 //strasse=Musterstrasse
-                url += `${input.name}=${input.value}&`;
+                url += `${input.placeholder}=${input.value}&`;
             }
         }
         let endpreis = document.getElementById("gesamtpreis").getAttribute("preis");
