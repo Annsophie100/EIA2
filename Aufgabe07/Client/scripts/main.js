@@ -375,13 +375,13 @@ var a07_eisdealer;
                 let preisMehrfach = preisEinfach * parseFloat(input.value);
                 if (parseFloat(input.value) == 1) {
                     //Eis=1xVanille2.00Euro
-                    url += `${input.getAttribute("produkt")}=${input.value}x${input.name}`;
+                    url += `${input.getAttribute("produkt")}=${input.value}x${input.name} `;
                     url += String(preisEinfach.toFixed(2));
                     url += `Euro&`;
                 }
                 else {
                     //Eis=3xVanille6.00Euro
-                    url += `${input.getAttribute("produkt")}=${input.value}x${input.name}`;
+                    url += `${input.getAttribute("produkt")}=${input.value}x${input.name} `;
                     url += String(preisMehrfach.toFixed(2));
                     url += `Euro&`;
                 }
