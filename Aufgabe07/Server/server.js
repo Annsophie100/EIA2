@@ -34,18 +34,22 @@ var L07_Server;
             switch (key) {
                 case ("Eis"):
                     responseString += key + "sorte: " + url.query[key];
+                    console.log(responseString);
                     break;
                 case ("Streusel"):
                 case ("Topping"):
                     responseString += key + ": " + url.query[key];
+                    console.log(responseString);
                     break;
                 case ("Cream"):
                 case ("Lieferart"):
                 case ("Lieferdienst"):
                     responseString += key + ": " + url.query[key];
+                    console.log(responseString);
                     break;
                 case ("Behaelter"):
                     responseString += url.query[key];
+                    console.log(responseString);
                     break;
                 default: break;
             }
