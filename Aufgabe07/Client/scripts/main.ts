@@ -259,7 +259,6 @@ namespace a07_eisdealer {
 
         // Ticker
         writeWarenkorb++;
-        checkWarenkorb();
     }
 
     //__________berechnet Preis__________________________
@@ -294,7 +293,7 @@ namespace a07_eisdealer {
     }
 
     //_________Validierung der Eingaben___________________________
-    function checkWarenkorb(): void {
+    function checkWarenkorb(_event: Event): void {
         // Variablen
         let messageDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("message");
         let p: HTMLParagraphElement;
@@ -326,7 +325,7 @@ namespace a07_eisdealer {
         else if (checkAdresse == false || checkArtikel == false) {
             document.getElementById("submitButton").style.display = "none";
         }
-
+        
         else {
             document.getElementById("submitButton").style.display = "initial";
         }

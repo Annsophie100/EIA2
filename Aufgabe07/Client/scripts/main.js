@@ -224,7 +224,6 @@ var a07_eisdealer;
         p.innerText = "Gesamtpreis: " + preis;
         // Ticker
         writeWarenkorb++;
-        checkWarenkorb();
     }
     //__________berechnet Preis__________________________
     function preisBerechnen(_warenkorbDiv) {
@@ -254,7 +253,7 @@ var a07_eisdealer;
         return preisString;
     }
     //_________Validierung der Eingaben___________________________
-    function checkWarenkorb() {
+    function checkWarenkorb(_event) {
         // Variablen
         let messageDiv = document.getElementById("message");
         let p;
