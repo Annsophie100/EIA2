@@ -5,12 +5,12 @@
 	"author": "Annsophie100",
 	"main": "Server.js",
 	"scripts": {
-		"start": "node A07/Server/server.js"
+		"start": "node Aufgabe07/Server/server.js"
 	},
 	"engines": {
-		"node": "8.11.3"
+		"node": "6.11.1"
 	},
 	"dependencies": {
-		"@types/node": "^11.13.8"
+		"@types/node": "12.0.0"
 	}
 }
