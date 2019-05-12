@@ -259,6 +259,7 @@ namespace a07_eisdealer {
 
         // Ticker
         writeWarenkorb++;
+        checkWarenkorb();
     }
 
     //__________berechnet Preis__________________________
@@ -293,7 +294,7 @@ namespace a07_eisdealer {
     }
 
     //_________Validierung der Eingaben___________________________
-    function checkWarenkorb(_event: Event): void {
+    function checkWarenkorb(): void {
         // Variablen
         let messageDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("message");
         let p: HTMLParagraphElement;
@@ -321,6 +322,13 @@ namespace a07_eisdealer {
             submitButton.innerText = "Bestellung abschicken";
             submitButton.addEventListener("click", urlSchreiben);
             document.getElementById("side").appendChild(submitButton);
+        }
+        else if (checkAdresse == false || checkArtikel == false) {
+            document.getElementById("submitButton").style.display = "none";
+        }
+
+        else {
+            document.getElementById("submitButton").style.display = "initial";
         }
 
         // Ticker

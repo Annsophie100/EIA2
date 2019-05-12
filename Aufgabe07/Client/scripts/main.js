@@ -224,6 +224,7 @@ var a07_eisdealer;
         p.innerText = "Gesamtpreis: " + preis;
         // Ticker
         writeWarenkorb++;
+        checkWarenkorb();
     }
     //__________berechnet Preis__________________________
     function preisBerechnen(_warenkorbDiv) {
@@ -253,7 +254,7 @@ var a07_eisdealer;
         return preisString;
     }
     //_________Validierung der Eingaben___________________________
-    function checkWarenkorb(_event) {
+    function checkWarenkorb() {
         // Variablen
         let messageDiv = document.getElementById("message");
         let p;
@@ -282,6 +283,12 @@ var a07_eisdealer;
             submitButton.innerText = "Bestellung abschicken";
             submitButton.addEventListener("click", urlSchreiben);
             document.getElementById("side").appendChild(submitButton);
+        }
+        else if (checkAdresse == false || checkArtikel == false) {
+            document.getElementById("submitButton").style.display = "none";
+        }
+        else {
+            document.getElementById("submitButton").style.display = "initial";
         }
         // Ticker
         writeMessage++;
