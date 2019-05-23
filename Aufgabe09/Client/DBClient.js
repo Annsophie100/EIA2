@@ -39,6 +39,7 @@ var A09_StudiVZ;
     }
     function handleFindResponse(_event) {
         let xhr = _event.target;
+        console.log(xhr.response);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output = document.getElementsByTagName("textarea")[0];
             output.value = xhr.response;
