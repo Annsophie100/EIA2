@@ -1,4 +1,4 @@
-namespace DBClient {
+namespace A09_StudiVZ {
     window.addEventListener("load", init);
     let serverAddress: string = "https://eiaannsophie.herokuapp.com/";
     // let serverAddress: string = "https://eia2-testserver.herokuapp.com/";
@@ -51,7 +51,7 @@ namespace DBClient {
             console.log(responseAsJson);
         }
     }
-    
+
     //additional
     function search(_event: Event): void {
         let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");

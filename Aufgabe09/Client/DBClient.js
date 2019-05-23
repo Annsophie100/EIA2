@@ -1,5 +1,5 @@
-var DBClient;
-(function (DBClient) {
+var A09_StudiVZ;
+(function (A09_StudiVZ) {
     window.addEventListener("load", init);
     let serverAddress = "https://eiaannsophie.herokuapp.com/";
     // let serverAddress: string = "https://eia2-testserver.herokuapp.com/";
@@ -54,5 +54,5 @@ var DBClient;
         console.log(query);
         sendRequest(query, handleFindResponse);
     }
-})(DBClient || (DBClient = {}));
+})(A09_StudiVZ || (A09_StudiVZ = {}));
 //# sourceMappingURL=DBClient.js.map
