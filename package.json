@@ -1,19 +1,19 @@
 {
-	"name": "eiaannsophie",
+	"name": "miniserver",
 	"version": "1.0.0",
-	"description": "StudiVZ",
-	"author": "Annsophie100",
+	"description": "Minimal server just bouncing the URL",
+	"author": "Jirka, adapted by Lukas",
 	"main": "Server.js",
 	"scripts": {
 		"start": "node Aufgabe09/Server/Server.js"
 	},
 	"engines": {
-		"node": "6.11.1",
+		"node": "8.11.3",
 		"mongodb": "^3.2.5"
 	},
 	"dependencies": {
 		"@types/mongodb": "^3.1.27",
-		"@types/node": "12.0.0",
+		"@types/node": "^11.13.8",
 		"mongodb": "^3.2.5"
 	}
 }
