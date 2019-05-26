@@ -6,7 +6,7 @@
 	"author" : "Annsophie",
 	"main" : "Server.js",
 	"scripts" : {
-		"start" : "node Aufgabe09-1/Server/Server.js"
+		"start" : "node Aufgabe09/Server/Server.js"
 	},
 	"engines" : {
 		"node" : "10.14.1"
