@@ -7,15 +7,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Mongo = require("mongodb");
 console.log("Database starting");
-let databaseURL = "mongodb://localhost:27017";
+let databaseURL = "mongodb://localhost:8100";
 let databaseName = "Test";
 let db;
 let students;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     // databaseURL = "mongodb+srv://username:password@hostname:port/database";
-    databaseURL = "mongodb+srv://testuser:123@testeia-an5by.mongodb.net/studiVZ";
-    databaseName = "studis";
+    databaseURL = "mongodb+srv://testuser:123@testeia-an5by.mongodb.net/studidata";
+    databaseName = "studidata";
 }
 // try to connect to database, then activate callback "handleConnect" 
 Mongo.MongoClient.connect(databaseURL, handleConnect);
