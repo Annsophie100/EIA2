@@ -1,19 +1,17 @@
+
 {
-	"name": "eiaannsophie",
-	"version": "1.0.0",
-	"description": "Minimal server just bouncing the URL",
-	"author": "Annsophie",
-	"main": "Server.js",
-	"scripts": {
-		"start": "node Aufgabe09/Server/Server.js"
+	"name" : "eiaannsophie",
+	"version" : "1.0.0",
+	"description" : "Minimal server just bouncing the URL",
+	"author" : "Annsophie",
+	"main" : "Server.js",
+	"scripts" : {
+		"start" : "node Aufgabe09-1/Server/Server.js"
 	},
-	"engines": {
-		"node": "6.11.1",
-		"mongodb": "5.4.2"
+	"engines" : {
+		"node" : "10.14.1"
 	},
-	"dependencies": {
-		"@types/mongodb": "^3.1.27",
-		"@types/node": "^11.13.8",
-		"mongodb": "^3.2.5"
+	"dependencies" : {
+		"mongodb": "^3.1.10"
 	}
 }
