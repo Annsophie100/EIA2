@@ -43,7 +43,7 @@ namespace A09_StudiVZ {
     }
 
     function handleFindResponse(_event: ProgressEvent): void {
-        console.log(fire find response);
+        console.log("fire find response");
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         console.log(xhr.response);
         if (xhr.readyState == XMLHttpRequest.DONE) {
