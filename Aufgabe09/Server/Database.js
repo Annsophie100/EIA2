@@ -18,7 +18,7 @@ if (process.env.NODE_ENV == "production") {
     databaseName = "studis";
 }
 // try to connect to database, then activate callback "handleConnect" 
-Mongo.MongoClient.connect(databaseURL, { connectTimeoutMS: 8000 }, handleConnect);
+Mongo.MongoClient.connect(databaseURL, handleConnect);
 // connect-handler receives two standard parameters, an error object and a database client object
 function handleConnect(_e, _client) {
     if (_e)
