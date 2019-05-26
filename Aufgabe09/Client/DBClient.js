@@ -38,7 +38,7 @@ var A09_StudiVZ;
         }
     }
     function handleFindResponse(_event) {
-        console.log(fire, find, response);
+        console.log("find response");
         let xhr = _event.target;
         console.log(xhr.response);
         if (xhr.readyState == XMLHttpRequest.DONE) {
