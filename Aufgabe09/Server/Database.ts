@@ -5,7 +5,6 @@
  */
 
 import * as Mongo from "mongodb";
-import { MongoClientOptions } from "mongodb";
 console.log("Database starting");
 
 let databaseURL: string = "mongodb://localhost:8100";
@@ -21,10 +20,10 @@ if (process.env.NODE_ENV == "production") {
 }
 
 // try to connect to database, then activate callback "handleConnect" 
-Mongo.MongoClient.connect(databaseURL, handleConnect);
+Mongo.MongoClient.connect(databaseURL, { connectTimeoutMS: 8000 }, handleConnect);
 
 // connect-handler receives two standard parameters, an error object and a database client object
-function handleConnect(_e: Mongo.MongoError, _client: Mongo.Db): void {
+function handleConnect(_e: Mongo.MongoError, _client: Mongo.MongoClient): void {
     if (_e)
         console.log("Unable to connect to database, error: ", _e);
     else {
