@@ -1,0 +1,39 @@
+/* 
+Aufgabe 09: Canvas
+Name: Annsophie Rösch
+Matrikel: 257727
+Datum: 02/06/2019
+
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert. 
+*/
+
+/*@CHARSET "UTF-8";
+
+@import
+url('');*/
+@import
+	url('https://fonts.googleapis.com/css?family=Sedgwick+Ave|Sedgwick+Ave+Display')
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	background-color: whitesmoke;
+}
+
+h1 {
+	font-family: 'Sedgwick Ave', cursive;
+	text-align: center;
+	margin: 1% 0;
+}
+
+canvas {
+	display: block;
+	margin: 1% auto;
+}
