@@ -179,7 +179,7 @@ namespace abschluss {
 
     //Animation
     function animate(): void {
-        console.log("animate");
+        //console.log("animate");
 
         crc.clearRect(0, 0, crc.canvas.width, crc.canvas.height);
         crc.putImageData(imgData, 0, 0);
@@ -198,7 +198,7 @@ namespace abschluss {
     }
 
     function handleKeydown(_event: KeyboardEvent): void {
-        console.log(_event.keyCode);
+        //console.log(_event.keyCode);
         switch (_event.keyCode) {
 
             //Leertaste
