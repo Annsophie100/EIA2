@@ -31,13 +31,13 @@ var abschluss;
             this.checkDistanceToOtherObjects();
         }
         draw() {
-            console.log("draw");
+            //console.log("draw");
             abschluss.crc.beginPath();
             abschluss.crc.drawImage(this.img, this.xPos, this.yPos, this.width * this.size, this.height * this.size);
             abschluss.crc.closePath();
         }
         handleKeyevent(_direction) {
-            console.log("fire direction move");
+            //console.log("fire direction move");
             switch (_direction) {
                 //left
                 case "left":
@@ -80,14 +80,14 @@ var abschluss;
                     let distanceX = abschluss.allO[i].xPos + abschluss.allO[i].width - this.xPos;
                     let distanceY = (abschluss.allO[i].yPos + abschluss.allO[i].height / 2) - (this.yPos + this.height / 2);
                     let distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
-                    console.log("distance " + distance);
-                    if (distance < 30) {
+                    //console.log("distance " + distance);
+                    if (distance < 10) {
                         if (abschluss.allO[i].size > this.size || abschluss.allO[i].typ == "shark") {
-                            console.log("GAME OVVVVVVVVVER");
-                            abschluss.highscore == true;
+                            //console.log("GAME OVVVVVVVVVER");
+                            abschluss.death = true;
                         }
                         else if (abschluss.allO[i].size <= this.size && abschluss.allO[i].typ != "food") {
-                            console.log("eat Fish");
+                            //console.log("eat Fish");
                             abschluss.allO[i].xPos = 0 - abschluss.allO[i].width;
                             this.size += 0.2;
                             switch (abschluss.allO[i].size) {
@@ -107,7 +107,7 @@ var abschluss;
                             }
                         }
                         else if (abschluss.allO[i].typ == "food") {
-                            console.log("eat Food");
+                            //console.log("eat Food");
                             abschluss.allO.splice(i, 1);
                             this.size += 0.2;
                             abschluss.score += 10;

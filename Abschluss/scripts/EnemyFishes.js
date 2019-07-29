@@ -38,7 +38,7 @@ var abschluss;
             }
         }
         draw() {
-            console.log("draw");
+            //console.log("draw");
             abschluss.crc.beginPath();
             abschluss.crc.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
             abschluss.crc.closePath();

@@ -12,7 +12,8 @@ var abschluss;
 (function (abschluss) {
     window.addEventListener("load", init);
     abschluss.score = 0;
-    abschluss.highscore = false;
+    abschluss.death = false;
+    let counterP;
     //listener!!
     let imgData;
     console.log("CanvasRendering2d active");
@@ -119,24 +120,24 @@ var abschluss;
                         break;
                     default: break;
                 }
-                let bubble = new abschluss.Bubble("img/shell0.png", xPos, yPos);
+                let bubble = new abschluss.Bubble("img/food0.png", xPos, yPos);
                 abschluss.allO.push(bubble);
             }
         }
+        // create counter
         let counterDiv = document.getElementById("scoreDiv");
-        let counter = document.createElement("fieldset");
-        counter.innerHTML = "<p>";
-        counter.innerHTML += abschluss.score.toString();
-        counter.innerHTML += " Punkte";
-        counter.innerHTML += "</p>";
-        counterDiv.appendChild(counter);
+        let counterF = document.createElement("fieldset");
+        counterP = document.createElement("p");
+        counterDiv.appendChild(counterF);
+        counterF.appendChild(counterP);
+        fillCounter();
         console.log(abschluss.allO);
         // animate
         animate();
     }
     //Animation
     function animate() {
-        console.log("animate");
+        //console.log("animate");
         abschluss.crc.clearRect(0, 0, abschluss.crc.canvas.width, abschluss.crc.canvas.height);
         abschluss.crc.putImageData(imgData, 0, 0);
         if (abschluss.allO[0].typ == "main") {
@@ -144,13 +145,21 @@ var abschluss;
                 abschluss.allO[i].update();
             }
         }
-        if (abschluss.highscore == true) {
+        fillCounter();
+        if (abschluss.death == true) {
             handleGameOver();
         }
         window.setTimeout(animate, 5);
     }
+    // Counter befüllen
+    function fillCounter() {
+        counterP.innerText = "";
+        counterP.innerText += abschluss.score.toString();
+        counterP.innerText += " Punkte";
+    }
+    // handle Keyboardevent
     function handleKeydown(_event) {
-        console.log(_event.keyCode);
+        //console.log(_event.keyCode);
         switch (_event.keyCode) {
             //Leertaste
             case 32:
@@ -175,6 +184,7 @@ var abschluss;
             default: break;
         }
     }
+    // create food
     function createFood() {
         console.log("fire create food");
         let food = new abschluss.Food(imgs[6], "food", 25, 100, 0);
@@ -183,6 +193,7 @@ var abschluss;
         food.draw();
         console.log("created");
     }
+    // handle Game over
     function handleGameOver() {
         window.clearTimeout(window.setTimeout(animate, 5));
         abschluss.eingabe = prompt("Du hast einen Score von " + abschluss.score + " erspielt. Bitte trage deinen Namen ein!");

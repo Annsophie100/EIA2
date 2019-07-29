@@ -104,10 +104,10 @@ namespace abschluss {
 
                     //console.log("distance " + distance);
 
-                    if (distance < 30) {
+                    if (distance < 10) {
                         if (allO[i].size > this.size || allO[i].typ == "shark") {
                             //console.log("GAME OVVVVVVVVVER");
-                            highscore == true;
+                            death = true;
                         }
 
                         else if (allO[i].size <= this.size && allO[i].typ != "food") {

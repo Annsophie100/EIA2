@@ -29,14 +29,14 @@ var abschluss;
             this.draw();
         }
         move() {
-            console.log("fire move food");
+            //console.log("fire move food");
             this.yPos += this.ySpeed;
             if (this.yPos > this.yMax) {
                 this.yPos == this.yMax;
             }
         }
         draw() {
-            console.log("draw food");
+            //console.log("draw food");
             abschluss.crc.beginPath();
             abschluss.crc.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
             abschluss.crc.closePath();

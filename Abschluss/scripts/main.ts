@@ -15,8 +15,9 @@ namespace abschluss {
     export let crc: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
     export let score: number = 0;
-    export let highscore: boolean = false;
+    export let death: boolean = false;
     export let eingabe: string;
+    let counterP: HTMLParagraphElement;
     //listener!!
 
     let imgData: ImageData;
@@ -156,20 +157,19 @@ namespace abschluss {
 
                     default: break;
                 }
-                let bubble: Bubble = new Bubble("img/shell0.png", xPos, yPos);
+                let bubble: Bubble = new Bubble("img/food0.png", xPos, yPos);
                 allO.push(bubble);
             }
         }
 
-
+        // create counter
         let counterDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("scoreDiv");
-        let counter: HTMLFieldSetElement = document.createElement("fieldset");
-        counter.innerHTML = "<p>";
-        counter.innerHTML += score.toString();
-        counter.innerHTML += " Punkte";
-        counter.innerHTML += "</p>";
+        let counterF: HTMLFieldSetElement = document.createElement("fieldset");
+        counterP = document.createElement("p");
+        counterDiv.appendChild(counterF);
+        counterF.appendChild(counterP);
 
-        counterDiv.appendChild(counter);
+        fillCounter();
 
         console.log(allO);
 
@@ -191,12 +191,23 @@ namespace abschluss {
 
         }
 
-        if (highscore == true) {
+        fillCounter();
+        
+        if (death == true) {
             handleGameOver();
         }
         window.setTimeout(animate, 5);
     }
 
+
+    // Counter befüllen
+    function fillCounter(): void {
+        counterP.innerText = "";
+        counterP.innerText += score.toString();
+        counterP.innerText += " Punkte";
+    }
+
+    // handle Keyboardevent
     function handleKeydown(_event: KeyboardEvent): void {
         //console.log(_event.keyCode);
         switch (_event.keyCode) {
@@ -230,6 +241,7 @@ namespace abschluss {
         }
     }
 
+    // create food
     function createFood(): void {
         console.log("fire create food");
         let food: Food = new Food(imgs[6], "food", 25, 100, 0);
@@ -239,6 +251,7 @@ namespace abschluss {
         console.log("created");
     }
 
+    // handle Game over
     function handleGameOver(): void {
         window.clearTimeout(window.setTimeout(animate, 5));
         eingabe = prompt("Du hast einen Score von " + score + " erspielt. Bitte trage deinen Namen ein!");
