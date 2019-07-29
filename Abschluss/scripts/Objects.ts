@@ -12,21 +12,25 @@ nicht kopiert und auch nicht diktiert.
 namespace abschluss {
 
     export class Objects {
-        
+
         typ: string;
         xPos: number;
         yPos: number;
-        
+        width: number;
+        height: number;
+        //counter
+        size: number;
+
         constructor() {
         }
 
         update(): void {
-            
+
         }
-        
+
         draw(): void {
-        } 
-        
+        }
+
     }
-    
+
 }

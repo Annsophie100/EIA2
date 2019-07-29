@@ -13,7 +13,7 @@ namespace abschluss {
 
     export class MainFish extends MovingObjects {
 
-        constructor(_src: string, _typ: string, _width: number, _height: number) {
+        constructor(_src: string, _typ: string, _width: number, _height: number, _size: number) {
             super(_src);
 
             this.typ = _typ;
@@ -29,13 +29,22 @@ namespace abschluss {
             this.yMax = crc.canvas.height;
             this.yMin = 0;
 
-            this.scaleFaktor = 1.5;
-            this.size = 1;
-            this.scaleVariable = this.size * this.scaleFaktor;
+            this.width = _width;
+            this.height = _height;
+
+            this.size = _size;
         }
 
         update(): void {
-            super.draw();
+            this.draw();
+            this.checkDistanceToOtherObjects();
+        }
+
+        draw(): void {
+            console.log("draw");
+            crc.beginPath();
+            crc.drawImage(this.img, this.xPos, this.yPos, this.width * this.size, this.height * this.size);
+            crc.closePath();
         }
 
         handleKeyevent(_direction: string): void {
@@ -85,44 +94,58 @@ namespace abschluss {
 
         checkDistanceToOtherObjects(): void {
 
-            for (let i: number = 0; i < allO.length; i++) {
-                if (allO[i] instanceof EnemyFishes || allO[i] instanceof Food || allO[i] instanceof Shark) {
-                    let distanceX: number;
-                    let distanceY: number;
-                    // c´distance
-                    if (distanceX < 5 || distanceY < 5) {
-                        this.handleCollisionWith(allO[i], i);
-                    }
-                    else {
+            for (let i: number = 1; i < allO.length; i++) {
+                if (allO[i].typ == "enemy0" || allO[i].typ == "enemy1" || allO[i].typ == "enemy2" || allO[i].typ == "enemy3" || allO[i].typ == "shark" || allO[i].typ == "food") {
+
+                    let distanceX: number = allO[i].xPos + allO[i].width - this.xPos;
+                    let distanceY: number = (allO[i].yPos + allO[i].height / 2) - (this.yPos + this.height / 2);
+
+                    let distance: number = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
+
+                    console.log("distance " + distance);
+
+                    if (distance < 30) {
+                        if (allO[i].size > this.size || allO[i].typ == "shark") {
+                            console.log("GAME OVVVVVVVVVER");
+                            highscore == true;
+                        }
+
+                        else if (allO[i].size <= this.size && allO[i].typ != "food") {
+                            console.log("eat Fish");
+
+                            allO[i].xPos = 0 - allO[i].width;
+                            this.size += 0.2;
+
+                            switch (allO[i].size) {
+                                case 0:
+                                    score += 10;
+                                    break;
+
+                                case 1:
+                                    score += 20;
+                                    break;
+
+                                case 2:
+                                    score += 30;
+                                    break;
+
+                                case 3:
+                                    score += 50;
+                                    break;
+                                default: break;
+                            }
+                        }
+
+                        else if (allO[i].typ == "food") {
+                            console.log("eat Food");
+
+                            allO.splice(i, 1);
+                            this.size += 0.2;
+                            score += 10;
+
+                        }
                     }
                 }
-                else {
-                }
-            }
-            //check distance (xPos und yPos vergleichen)
-            //irrelevant
-            //< 5
-            // handleCollision(_allObj[i], i);
-        }
-
-        handleCollisionWith(_collisionObject: Objects, _placement: number): void {
-            if (_collisionObject instanceof EnemyFishes && _collisionObject.size > this.size || _collisionObject instanceof Shark) {
-                //wenn enemy && größer oder shark
-
-                //sterben
-                //remove mainFish von array
-                allO.splice(0, 1);
-                highscore == true;
-
-            }
-            else if (_collisionObject instanceof EnemyFishes && _collisionObject.size < this.size || _collisionObject instanceof Food) {
-                //wenn food||enemy und kleiner
-
-                // fressen
-                // remove i from array
-                allO.splice(_placement - 1, _placement);
-                // size++;
-                // score++
             }
         }
     }

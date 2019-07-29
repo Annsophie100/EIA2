@@ -13,7 +13,7 @@ namespace abschluss {
 
     export class Shark extends MovingObjects {
 
-        constructor(_src: string, _typ: string, _width: number, _height: number) {
+        constructor(_src: string, _typ: string, _width: number, _height: number, _size: number) {
             super(_src);
             this.typ = _typ;
             this.img = new Image();
@@ -30,15 +30,14 @@ namespace abschluss {
             this.yMax = crc.canvas.height;
             this.yMin = 0;
 
-            this.scaleFaktor = 1.5;
+            this.width = _width;
+            this.height = _height;
+            this.size = _size;
 
-            //anpassen groß!!!
-            this.size = 1;
-            this.scaleVariable = this.size * this.scaleFaktor;
         }
 
         update(): void {
-            super.draw();
+            this.draw();
             this.move();
         }
 
@@ -47,6 +46,13 @@ namespace abschluss {
             if (this.xPos >= this.xMax) {
                 this.xPos = this.xMin;
             }
+        }
+        
+        draw(): void {
+            console.log("draw");
+            crc.beginPath();
+            crc.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
+            crc.closePath();
         }
     }
 }

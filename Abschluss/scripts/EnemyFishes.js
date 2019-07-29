@@ -11,7 +11,7 @@ nicht kopiert und auch nicht diktiert.
 var abschluss;
 (function (abschluss) {
     class EnemyFishes extends abschluss.MovingObjects {
-        constructor(_src, _typ, _width, _height) {
+        constructor(_src, _typ, _width, _height, _size) {
             super(_src);
             this.typ = _typ;
             this.xPos = (Math.random() * (-200)) - 350;
@@ -23,19 +23,25 @@ var abschluss;
             ;
             this.yMax = abschluss.crc.canvas.height;
             this.yMin = 0;
-            this.scaleFaktor = 1.5;
-            this.size = 1;
-            this.scaleVariable = this.size * this.scaleFaktor;
+            this.width = _width;
+            this.height = _height;
+            this.size = _size;
         }
         update() {
             this.move();
-            super.draw();
+            this.draw();
         }
         move() {
             this.xPos += this.xSpeed;
             if (this.xPos >= this.xMax) {
                 this.xPos = this.xMin;
             }
+        }
+        draw() {
+            console.log("draw");
+            abschluss.crc.beginPath();
+            abschluss.crc.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
+            abschluss.crc.closePath();
         }
     }
     abschluss.EnemyFishes = EnemyFishes;

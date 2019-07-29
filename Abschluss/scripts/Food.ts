@@ -13,12 +13,12 @@ namespace abschluss {
 
     export class Food extends MovingObjects {
 
-        constructor(_src: string, _typ: string, _width: number, _height: number) {
+        constructor(_src: string, _typ: string, _width: number, _height: number, _size: number) {
             super(_src);
             this.typ = _typ;
 
             this.xPos = Math.random() * crc.canvas.width;
-            this.yPos = 0;
+            this.yPos = -100;
 
             this.xSpeed = 0;
             this.ySpeed = 2;
@@ -28,11 +28,12 @@ namespace abschluss {
             this.yMax = crc.canvas.height;
             this.yMin = 0;
 
+            this.size = _size;
         }
 
         update(): void {
             this.move();
-            super.draw();
+            this.draw();
 
         }
 
@@ -43,6 +44,13 @@ namespace abschluss {
                 this.yPos == this.yMax;
             }
 
+        }
+
+        draw(): void {
+            console.log("draw food");
+            crc.beginPath();
+            crc.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
+            crc.closePath();
         }
 
     }

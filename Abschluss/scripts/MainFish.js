@@ -11,7 +11,7 @@ nicht kopiert und auch nicht diktiert.
 var abschluss;
 (function (abschluss) {
     class MainFish extends abschluss.MovingObjects {
-        constructor(_src, _typ, _width, _height) {
+        constructor(_src, _typ, _width, _height, _size) {
             super(_src);
             this.typ = _typ;
             this.xPos = abschluss.crc.canvas.width * 0.5;
@@ -22,12 +22,19 @@ var abschluss;
             this.xMin = 0;
             this.yMax = abschluss.crc.canvas.height;
             this.yMin = 0;
-            this.scaleFaktor = 1.5;
-            this.size = 1;
-            this.scaleVariable = this.size * this.scaleFaktor;
+            this.width = _width;
+            this.height = _height;
+            this.size = _size;
         }
         update() {
-            super.draw();
+            this.draw();
+            this.checkDistanceToOtherObjects();
+        }
+        draw() {
+            console.log("draw");
+            abschluss.crc.beginPath();
+            abschluss.crc.drawImage(this.img, this.xPos, this.yPos, this.width * this.size, this.height * this.size);
+            abschluss.crc.closePath();
         }
         handleKeyevent(_direction) {
             console.log("fire direction move");
@@ -68,38 +75,45 @@ var abschluss;
             }
         }
         checkDistanceToOtherObjects() {
-            for (let i = 0; i < abschluss.allO.length; i++) {
-                if (abschluss.allO[i] instanceof abschluss.EnemyFishes || abschluss.allO[i] instanceof abschluss.Food || abschluss.allO[i] instanceof abschluss.Shark) {
-                    let distanceX;
-                    let distanceY;
-                    // c´distance
-                    if (distanceX < 5 || distanceY < 5) {
-                        this.handleCollisionWith(abschluss.allO[i], i);
-                    }
-                    else {
+            for (let i = 1; i < abschluss.allO.length; i++) {
+                if (abschluss.allO[i].typ == "enemy0" || abschluss.allO[i].typ == "enemy1" || abschluss.allO[i].typ == "enemy2" || abschluss.allO[i].typ == "enemy3" || abschluss.allO[i].typ == "shark" || abschluss.allO[i].typ == "food") {
+                    let distanceX = abschluss.allO[i].xPos + abschluss.allO[i].width - this.xPos;
+                    let distanceY = (abschluss.allO[i].yPos + abschluss.allO[i].height / 2) - (this.yPos + this.height / 2);
+                    let distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
+                    console.log("distance " + distance);
+                    if (distance < 30) {
+                        if (abschluss.allO[i].size > this.size || abschluss.allO[i].typ == "shark") {
+                            console.log("GAME OVVVVVVVVVER");
+                            abschluss.highscore == true;
+                        }
+                        else if (abschluss.allO[i].size <= this.size && abschluss.allO[i].typ != "food") {
+                            console.log("eat Fish");
+                            abschluss.allO[i].xPos = 0 - abschluss.allO[i].width;
+                            this.size += 0.2;
+                            switch (abschluss.allO[i].size) {
+                                case 0:
+                                    abschluss.score += 10;
+                                    break;
+                                case 1:
+                                    abschluss.score += 20;
+                                    break;
+                                case 2:
+                                    abschluss.score += 30;
+                                    break;
+                                case 3:
+                                    abschluss.score += 50;
+                                    break;
+                                default: break;
+                            }
+                        }
+                        else if (abschluss.allO[i].typ == "food") {
+                            console.log("eat Food");
+                            abschluss.allO.splice(i, 1);
+                            this.size += 0.2;
+                            abschluss.score += 10;
+                        }
                     }
                 }
-                else {
-                }
-            }
-            //check distance (xPos und yPos vergleichen)
-            //irrelevant
-            //< 5
-            // handleCollision(_allObj[i], i);
-        }
-        handleCollisionWith(_collisionObject, _placement) {
-            if (_collisionObject instanceof abschluss.EnemyFishes && _collisionObject.size > this.size || _collisionObject instanceof abschluss.Shark) {
-                //wenn enemy && größer oder shark
-                //sterben
-                //remove mainFish von array
-                abschluss.allO.splice(0, 1);
-                abschluss.highscore == true;
-            }
-            else if (_collisionObject instanceof abschluss.EnemyFishes && _collisionObject.size < this.size || _collisionObject instanceof abschluss.Food) {
-                //wenn food||enemy und kleiner
-                // fressen
-                // remove i from array
-                abschluss.allO.splice(_placement - 1, _placement);
             }
         }
     }

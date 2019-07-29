@@ -19,10 +19,7 @@ namespace abschluss {
         xMin: number;
         yMax: number;
         yMin: number;
-        // counter
-        size: number;
-        scaleFaktor: number;
-        scaleVariable: number;
+        
         img: HTMLImageElement;
 
         constructor(_src: string) {
@@ -37,10 +34,7 @@ namespace abschluss {
         }
 
         draw(): void {
-            console.log("draw super");
-            crc.beginPath();
-            crc.drawImage(this.img, this.xPos, this.yPos);
-            crc.closePath();
+            
         }
 
         move(): void {

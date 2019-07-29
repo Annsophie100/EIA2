@@ -6,9 +6,6 @@ declare namespace abschluss {
         xMin: number;
         yMax: number;
         yMin: number;
-        size: number;
-        scaleFaktor: number;
-        scaleVariable: number;
         img: HTMLImageElement;
         constructor(_src: string);
         update(): void;

@@ -13,7 +13,7 @@ namespace abschluss {
 
     export class EnemyFishes extends MovingObjects {
 
-        constructor(_src: string, _typ: string, _width: number, _height: number) {
+        constructor(_src: string, _typ: string, _width: number, _height: number, _size: number) {
             super(_src);
             this.typ = _typ;
 
@@ -28,15 +28,17 @@ namespace abschluss {
             this.yMax = crc.canvas.height;
             this.yMin = 0;
 
-            this.scaleFaktor = 1.5;
+            this.width = _width;
+            this.height = _height;
 
-            this.size = 1;
-            this.scaleVariable = this.size * this.scaleFaktor;
+            this.size = _size;
+
+
         }
 
         update(): void {
             this.move();
-            super.draw();
+            this.draw();
         }
 
         move(): void {
@@ -46,6 +48,12 @@ namespace abschluss {
             }
         }
 
+        draw(): void {
+            console.log("draw");
+            crc.beginPath();
+            crc.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
+            crc.closePath();
+        }
     }
 
 }

@@ -11,7 +11,7 @@ nicht kopiert und auch nicht diktiert.
 var abschluss;
 (function (abschluss) {
     class Shark extends abschluss.MovingObjects {
-        constructor(_src, _typ, _width, _height) {
+        constructor(_src, _typ, _width, _height, _size) {
             super(_src);
             this.typ = _typ;
             this.img = new Image();
@@ -24,13 +24,12 @@ var abschluss;
             this.xMin = -500;
             this.yMax = abschluss.crc.canvas.height;
             this.yMin = 0;
-            this.scaleFaktor = 1.5;
-            //anpassen groß!!!
-            this.size = 1;
-            this.scaleVariable = this.size * this.scaleFaktor;
+            this.width = _width;
+            this.height = _height;
+            this.size = _size;
         }
         update() {
-            super.draw();
+            this.draw();
             this.move();
         }
         move() {
@@ -38,6 +37,12 @@ var abschluss;
             if (this.xPos >= this.xMax) {
                 this.xPos = this.xMin;
             }
+        }
+        draw() {
+            console.log("draw");
+            abschluss.crc.beginPath();
+            abschluss.crc.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
+            abschluss.crc.closePath();
         }
     }
     abschluss.Shark = Shark;

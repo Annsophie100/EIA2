@@ -21,10 +21,6 @@ var abschluss;
             this.move();
         }
         draw() {
-            console.log("draw super");
-            abschluss.crc.beginPath();
-            abschluss.crc.drawImage(this.img, this.xPos, this.yPos);
-            abschluss.crc.closePath();
         }
         move() {
         }

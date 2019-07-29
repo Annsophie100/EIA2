@@ -19,59 +19,78 @@ var abschluss;
     //Anzahl der Objekte festlegen
     let mainFish;
     let nEnemy0 = 5;
-    let nEnemy1 = 5;
-    let nEnemy2 = 5;
+    let nEnemy1 = 3;
+    let nEnemy2 = 2;
+    let nEnemy3 = 2;
+    let nStream = 5;
     let nBubble = 40;
-    let nStreamHinten = 2;
-    let nStreamVorn = 3;
     //Array aller Objekte
     abschluss.allO = [];
-    abschluss.movingO = [];
-    let imgs = ["img/mainFish.png", "img/enemy0.png", "img/enemy1.png", "img/enemy2.png", "img/shark.png", "img/food0.png", "img/food1.png"];
+    abschluss.enemys = [];
+    abschluss.sharks = [];
+    abschluss.foods = [];
+    let imgs = ["img/mainFish.png", "img/enemy0.png", "img/enemy1.png", "img/enemy2.png", "img/enemy3.png", "img/shark.png", "img/food0.png", "img/food1.png"];
     //init
     function init() {
-        console.log("#call init");
+        console.log("INIT");
+        document.getElementById('gamePage').style.display = "none";
+        document.getElementById('introPage').style.display = "block";
+        document.getElementById('startButt').addEventListener("click", startBuildingGame);
+    }
+    //_________________________________________________
+    function startBuildingGame() {
+        console.log("START");
+        //Display
+        document.getElementById('gamePage').style.display = "block";
+        document.getElementById('introPage').style.display = "none";
         abschluss.canvas = document.getElementsByTagName("canvas")[0];
         abschluss.crc = abschluss.canvas.getContext("2d");
         //  EventListener
         document.body.addEventListener("keydown", handleKeydown);
-        //  staticObjects with no interaction
+        //  staticObjects ohne Interaktion
         abschluss.drawStaticBackground();
         // imgData speichern
         imgData = abschluss.crc.getImageData(0, 0, abschluss.canvas.width, abschluss.canvas.height);
         // mainFish
-        mainFish = new abschluss.MainFish(imgs[0], "main", 100, 67);
+        mainFish = new abschluss.MainFish(imgs[0], "main", 90, 60, 1);
         abschluss.allO.push(mainFish);
         // enemys
         //smallest
         for (let i = 0; i < nEnemy0; i++) {
-            let enemy = new abschluss.EnemyFishes(imgs[1], "enemy0", 100, 68);
+            let enemy = new abschluss.EnemyFishes(imgs[1], "enemy0", 74, 50, 0);
             abschluss.allO.push(enemy);
-            abschluss.movingO.push(enemy);
+            abschluss.enemys.push(enemy);
         }
         //middle
         for (let i = 0; i < nEnemy1; i++) {
-            let enemy = new abschluss.EnemyFishes(imgs[2], "enemy1", 100, 70);
+            let enemy = new abschluss.EnemyFishes(imgs[2], "enemy1", 114, 80, 1);
             abschluss.allO.push(enemy);
-            abschluss.movingO.push(enemy);
+            abschluss.enemys.push(enemy);
         }
         //big
         for (let i = 0; i < nEnemy2; i++) {
-            let enemy = new abschluss.EnemyFishes(imgs[3], "enemy2", 100, 74);
+            let enemy = new abschluss.EnemyFishes(imgs[3], "enemy2", 162, 120, 2);
             abschluss.allO.push(enemy);
-            abschluss.movingO.push(enemy);
+            abschluss.enemys.push(enemy);
+        }
+        //bigger
+        for (let i = 0; i < nEnemy3; i++) {
+            let enemy = new abschluss.EnemyFishes(imgs[4], "enemy3", 179, 140, 3);
+            abschluss.allO.push(enemy);
+            abschluss.enemys.push(enemy);
         }
         //shark
-        let shark = new abschluss.Shark(imgs[4], "shark", 130, 54);
+        let shark = new abschluss.Shark(imgs[5], "shark", 361, 150, 100);
         abschluss.allO.push(shark);
-        abschluss.movingO.push(shark);
-        //Blubbles hinten
-        for (let i = 0; i < nStreamHinten; i++) {
+        abschluss.sharks.push(shark);
+        //Blubbles 
+        for (let i = 0; i < nStream; i++) {
             let pos = i;
             for (let j = 0; j < nBubble; j++) {
                 let xPos;
                 let yPos;
                 switch (pos) {
+                    //hinten
                     case 0:
                         xPos = 400 + Math.random() * 50;
                         yPos = 5 + Math.random() * 540;
@@ -82,40 +101,35 @@ var abschluss;
                         yPos = 5 + Math.random() * 520;
                         console.log("switch3");
                         break;
-                    default: break;
-                }
-                let bubble = new abschluss.Bubble(xPos, yPos);
-                abschluss.allO.push(bubble);
-            }
-        }
-        //Blubbles vorn
-        for (let i = 0; i < nStreamVorn; i++) {
-            let pos = i;
-            for (let j = 0; j < nBubble; j++) {
-                let xPos;
-                let yPos;
-                switch (pos) {
-                    case 0:
+                    //vorne   
+                    case 2:
                         xPos = 10 + Math.random() * 50;
                         yPos = 5 + Math.random() * 590;
                         console.log("switch0");
                         break;
-                    case 1:
+                    case 3:
                         xPos = 740 + Math.random() * 40;
                         yPos = 5 + Math.random() * 590;
                         console.log("switch2");
                         break;
-                    case 2:
+                    case 4:
                         xPos = 1330 + Math.random() * 40;
                         yPos = 5 + Math.random() * 590;
                         console.log("switch4");
                         break;
                     default: break;
                 }
-                let bubble = new abschluss.Bubble(xPos, yPos);
+                let bubble = new abschluss.Bubble("img/shell0.png", xPos, yPos);
                 abschluss.allO.push(bubble);
             }
         }
+        let counterDiv = document.getElementById("scoreDiv");
+        let counter = document.createElement("fieldset");
+        counter.innerHTML = "<p>";
+        counter.innerHTML += abschluss.score.toString();
+        counter.innerHTML += " Punkte";
+        counter.innerHTML += "</p>";
+        counterDiv.appendChild(counter);
         console.log(abschluss.allO);
         // animate
         animate();
@@ -130,7 +144,9 @@ var abschluss;
                 abschluss.allO[i].update();
             }
         }
-        handleGameOver();
+        if (abschluss.highscore == true) {
+            handleGameOver();
+        }
         window.setTimeout(animate, 5);
     }
     function handleKeydown(_event) {
@@ -161,12 +177,16 @@ var abschluss;
     }
     function createFood() {
         console.log("fire create food");
-        let food = new abschluss.Food(imgs[5], "food", 25, 100);
+        let food = new abschluss.Food(imgs[6], "food", 25, 100, 0);
         abschluss.allO.push(food);
+        abschluss.foods.push(food);
         food.draw();
         console.log("created");
     }
     function handleGameOver() {
+        window.clearTimeout(window.setTimeout(animate, 5));
+        abschluss.eingabe = prompt("Du hast einen Score von " + abschluss.score + " erspielt. Bitte trage deinen Namen ein!");
+        abschluss.insert();
     }
 })(abschluss || (abschluss = {}));
 //# sourceMappingURL=main.js.map
