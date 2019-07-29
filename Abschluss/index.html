@@ -31,19 +31,30 @@ nicht kopiert und auch nicht diktiert.
 <script type="text/javascript" src="scripts/MainFish.js"></script>
 <script type="text/javascript" src="scripts/EnemyFishes.js"></script>
 <script type="text/javascript" src="scripts/Shark.js"></script>
-<script type="text/javascript" src="scripts/Bubbles.js"></script>
+<script type="text/javascript" src="scripts/Bubble.js"></script>
 <script type="text/javascript" src="scripts/Food.js"></script>
-<script type="text/javascript" src="scripts/Highscore.js"></script>
-
-
+<script src="Client/DBClient.js" type="text/javascript" charset="utf-8"></script>
 </head>
-
 <body>
-
-	<h1>🐡SeaWorld🐠</h1>
-	<canvas width="1400" height="600"></canvas>
+	<div id="introPage">
+		<h1>There is always a bigger Fish</h1>
+		<h2>Willkommen in der Unterwasserwelt</h2>
+		<p>Steuere mit Hilfe deiner Pfeiltasten den kleinen Guppy, um ihm beim wachsen zu helfen.<br> 
+		Er wächst, indem er kleinere Lebewesen oder Futter frisst, welches über die Leertaste generiert wird.<br>
+		Pass bloß auf, der kleine Guppy kann genauso gut von größeren Fischen gefressen werden.<br> 
+		Nimm dich in Acht vor dem Hai, denn diesen kannst du nie besiegen.</p>
+		<button id="startButt">
+			<figure>
+				<img id="startButtImg" src="img/mainFish.png" alt="start here">
+				<figcaption>Start</figcaption>
+			</figure>
+		</button>
+	</div>
+	<div id="gamePage">
+		<h1>There is always a bigger Fish</h1>
+		<canvas width="1400" height="600"></canvas>
+		<div id="scoreDiv"></div>
+		<div id="liste"></div>
+	</div>
 </body>
-
-
-
 </html>

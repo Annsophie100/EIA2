@@ -9,31 +9,68 @@ Code selbst geschrieben habe. Er wurdeF
 nicht kopiert und auch nicht diktiert. 
 */
 
-/*@CHARSET "UTF-8";
 
-@import
-url('');*/
-
-@import url('https://fonts.googleapis.com/css?family=Cinzel:700');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+SC|Alegreya+Sans&display=swap');
 
 * {
-	margin: 0;
+	border: 0;
 	padding: 0;
+	margin: 0;
+	text-align: center;
 }
 
 html {
 	width: 100%;
-	background-color: whitesmoke;
+	background-color: PowderBlue;
 }
 
-h1 {
-	font-family: 'Cinzel', serif;
+body {
+	cursor: pointer;
+	background-color: PowderBlue;
+}
+
+h1, h2 {
+	font-family: 'Alegreya SC', serif;
 	text-align: center;
 	margin: 1% 0;
 }
 
 canvas {
-  display: block;
-	margin:  1% auto; 
+	display: block;
+	margin: 1% auto;
 }
 
+figcaption {
+	font-family: 'Alegreya SC', serif;
+}
+
+#introPage, #introPage p{
+	font-family: 'Alegreya Sans', sans-serif;
+	padding: 0.5%;
+}
+
+#startButt {
+	margin: 3% 0;
+	background-color: PowderBlue;
+}
+
+#startButt:link {
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+#startButt:visited {
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+#startButt:hover {
+	cursor: -webkit-grab;
+	cursor: grab;
+	color: sienna;
+}
+
+#startButt:active {
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+}
