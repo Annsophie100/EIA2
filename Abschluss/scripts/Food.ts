@@ -38,7 +38,7 @@ namespace abschluss {
         }
 
         move(): void {
-            console.log("fire move food");
+            //console.log("fire move food");
             this.yPos += this.ySpeed;
             if (this.yPos > this.yMax) {
                 this.yPos == this.yMax;
@@ -47,7 +47,7 @@ namespace abschluss {
         }
 
         draw(): void {
-            console.log("draw food");
+            //console.log("draw food");
             crc.beginPath();
             crc.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
             crc.closePath();
