@@ -49,7 +49,7 @@ namespace abschluss {
         }
         
         draw(): void {
-            console.log("draw");
+            //console.log("draw");
             crc.beginPath();
             crc.drawImage(this.img, this.xPos, this.yPos, this.width, this.height);
             crc.closePath();
