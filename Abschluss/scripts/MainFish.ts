@@ -41,7 +41,7 @@ namespace abschluss {
         }
 
         draw(): void {
-            console.log("draw");
+            //console.log("draw");
             crc.beginPath();
             crc.drawImage(this.img, this.xPos, this.yPos, this.width * this.size, this.height * this.size);
             crc.closePath();
@@ -49,7 +49,7 @@ namespace abschluss {
 
         handleKeyevent(_direction: string): void {
 
-            console.log("fire direction move");
+            //console.log("fire direction move");
             switch (_direction) {
 
                 //left
@@ -102,16 +102,16 @@ namespace abschluss {
 
                     let distance: number = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
 
-                    console.log("distance " + distance);
+                    //console.log("distance " + distance);
 
                     if (distance < 30) {
                         if (allO[i].size > this.size || allO[i].typ == "shark") {
-                            console.log("GAME OVVVVVVVVVER");
+                            //console.log("GAME OVVVVVVVVVER");
                             highscore == true;
                         }
 
                         else if (allO[i].size <= this.size && allO[i].typ != "food") {
-                            console.log("eat Fish");
+                            //console.log("eat Fish");
 
                             allO[i].xPos = 0 - allO[i].width;
                             this.size += 0.2;
@@ -137,7 +137,7 @@ namespace abschluss {
                         }
 
                         else if (allO[i].typ == "food") {
-                            console.log("eat Food");
+                            //console.log("eat Food");
 
                             allO.splice(i, 1);
                             this.size += 0.2;
