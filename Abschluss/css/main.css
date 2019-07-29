@@ -41,7 +41,8 @@ canvas {
 }
 
 figcaption {
-	font-family: 'Alegreya SC', serif;
+	font-family: 'Alegreya Sans', sans-serif;
+	font-weight: 500;
 }
 
 #introPage, #introPage p{
